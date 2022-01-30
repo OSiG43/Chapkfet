@@ -81,12 +81,12 @@
 					<h1>Tu as déjà répondu à cette question !</h1>
 					<a href="../index.php" class="button">Retour à la carte</a>
 				</div>
+				
       <?php
         exit(); //Avec exit, on empeche au serveur d'envoyé ce qui suit.
 				
 			}
-
-
+			
       ?>
 
 

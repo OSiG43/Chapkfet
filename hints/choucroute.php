@@ -37,6 +37,7 @@
       
       //On vérifie que les questions du niveau précédent ont bien étaient répondu.
       $levels = getPlayerLevels($_SESSION['bucque']);
+      $hints = getPlayerHints($_SESSION['bucque']);
       $neededLevels = [1]; //A changer suivant la question 
       /*
         Pour faire des tests, il est possible de commenter la ligne $hints = getPlayerHints($_SESSION['bucque']);
@@ -67,6 +68,19 @@
         exit(); //Avec exit, on empeche au serveur d'envoyé ce qui suit.
       }
 
+			//test si la question a déjà été répondue
+			if(in_array( $hintNumber , $hints )){
+			?>
+				<div>
+					<h1>Tu as déjà répondu à cette question !</h1>
+					<a href="../index.php" class="button">Retour à la carte</a>
+				</div>
+
+      <?php
+        exit(); //Avec exit, on empeche au serveur d'envoyé ce qui suit.
+				
+			}
+			
       ?>
 
 
