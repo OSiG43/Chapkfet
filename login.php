@@ -31,7 +31,10 @@ if(isset($_POST['bucque'])){
 
     $user = mysqli_fetch_assoc($result);
     // vérifier si l'utilisateur est un administrateur ou un utilisateur
-    if ($user['admin'] == 1) {
+    if(isset($_GET['p'])) {
+      $p = $_GET["p"];
+      header("Location: ".$p.".php");
+    }elseif ($user['admin'] == 1) {
       header('location: admin/home.php');      
     }else{
       header('location: index.php');
