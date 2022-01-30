@@ -3,7 +3,7 @@
 
   //On vérifie que la personne est connectée, sinon on la redirige vers la page de connection
 	if(!isset($_SESSION['bucque'])){
-		header("Location: ../login.php?p=toit"); //Ne pas oublié de changer choucroute pour le nom du fichier.
+		header("Location: ../login.php?p=hints/toit"); //Ne pas oublié de changer choucroute pour le nom du fichier.
 	}
 	
   require("../utils/user_utils.php"); // on importe user utils pour la suite.
