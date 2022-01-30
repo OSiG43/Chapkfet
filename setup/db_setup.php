@@ -1,5 +1,5 @@
 <?php
-require("config/config_db.php");
+require("../config/config_db.php");
 
 //Creation de la table users
 $query = "CREATE TABLE `users` (
@@ -7,7 +7,8 @@ $query = "CREATE TABLE `users` (
   `bucque` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `points` int(11) DEFAULT 0 NOT NULL ,
-  `currentHint` int(11) DEFAULT 0 NOT NULL,
+  `hints` varchar(100) DEFAULT '' NOT NULL,
+  `levels` varchar(100) DEFAULT '' NOT NULL,
   `admin` boolean NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;";
 

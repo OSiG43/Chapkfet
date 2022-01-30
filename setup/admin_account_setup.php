@@ -1,5 +1,5 @@
 <?php
-require("config/config_db.php");
+require("../config/config_db.php");
 
 $admin_username = "admin";
 $admin_pass = "admin";

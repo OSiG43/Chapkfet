@@ -39,10 +39,44 @@ function getPlayerHints($bucque){
   	$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
   
   	if (mysqli_num_rows($result) == 1) {
-  		$user = mysqli_fetch_assoc($result);
-  		$hints=[];
+  		$hintString = explode(",", mysqli_fetch_assoc($result)['hints']);
+      $hints=[];
 
+  		for ($i=0; $i < sizeof($hintString); $i++) { 
+        array_push($hints, (int)$hintString[$i]);
+      }
+
+    return $hints;
   	}
+}
+
+function getPlayerLevels($bucque){
+  global $conn;
+
+  $query = "SELECT levels FROM `users` WHERE bucque='$bucque';";
+  
+    $result = mysqli_query($conn,$query) or die(mysqli_error($conn));
+  
+    if (mysqli_num_rows($result) == 1) {
+      $levelString = explode(",", mysqli_fetch_assoc($result)['levels']);
+      $levels=[];
+
+      for ($i=0; $i < sizeof($levelString); $i++) { 
+        array_push($levels, (int)$levelString[$i]);
+      }
+
+    return $levels;
+    }
+}
+
+function getNbPlayerAnswer($hintNum){
+  global $conn;
+
+  $query = "SELECT * FROM `users` WHERE hints LIKE '%".$hintNum."%';";
+
+  $result = mysqli_query($conn,$query) or die(mysqli_error($conn));
+  
+  return mysqli_num_rows($result);
 }
 
 /**
@@ -54,7 +88,7 @@ function getPlayerHints($bucque){
 function getAllPlayerInfo($order = "id"){
 	global $conn;
 
-	$query = "SELECT id, bucque, points, currentHint, admin FROM `users` ORDER BY ".$order.";";
+	$query = "SELECT id, bucque, points, hints, admin FROM `users` ORDER BY ".$order.";";
   
   	$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
   
@@ -64,7 +98,7 @@ function getAllPlayerInfo($order = "id"){
 function getPlayerInfo($bucque){
 	global $conn;
 
-	$query = "SELECT id, bucque, points, currentHint, admin FROM `users` WHERE bucque=".$bucque.";";
+	$query = "SELECT id, bucque, hints, points, admin FROM `users` WHERE bucque=".$bucque.";";
   
   	$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
   
@@ -101,10 +135,36 @@ function setPlayerPoint($bucque, $point){
 function addPlayerHint($bucque, $hintId){
 	global $conn;
 
-	$query = "UPDATE `users` SET currentHint= ".$hintId." WHERE bucque='$bucque';";
+  $currentsHints = getPlayerHints($bucque);
+  array_push($currentsHints, $hintId);
+
+	$query = "UPDATE `users` SET hints='".implode(",", $currentsHints)."' WHERE bucque='$bucque';";
   
   	$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
 	return $result;
+}
+
+function addPlayerArea($bucque, $levelId){
+  global $conn;
+
+  $currentsLevels = getPlayerLevels($bucque);
+  array_push($currentsLevels, $hintId);
+
+  $query = "UPDATE `users` SET levels='".implode(",", $currentsLevels)."' WHERE bucque='$bucque';";
+  
+    $result = mysqli_query($conn,$query) or die(mysqli_error($conn));
+  return $result;
+}
+
+
+function setPlayerHint($bucque, $hints){
+  global $conn;
+
+
+  $query = "UPDATE `users` SET hints= ".$hints." WHERE bucque='$bucque';";
+  
+    $result = mysqli_query($conn,$query) or die(mysqli_error($conn));
+  return $result;
 }
 
 function setPlayerPassword($bucque, $psw){

@@ -5,6 +5,22 @@
 	/*echo(getPoint($_SESSION['bucque'])."<br>");
 	setPoint($_SESSION['bucque'],0);
 	echo(getPoint($_SESSION['bucque'])."<br>");*/
+
+	
+	/*echo(sizeof(getPlayerHints('admin'))."<br>");
+	foreach (getPlayerHints('admin') as $l) {
+		echo($l);
+	}
+	addPlayerHint('admin',5);
+	echo("<br><br>");
+	foreach (getPlayerHints('admin') as $l) {
+		echo($l);
+	}*/
+
+	echo(getNbPlayerAnswer(1));
+	/*foreach ($str as $l ) {
+		echo($l);
+	}*/
 ?>
 
 

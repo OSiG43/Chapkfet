@@ -7,7 +7,7 @@
 	}
 	
   require("../utils/user_utils.php"); // on importe user utils pour la suite.
-  $hintNumber = 1;
+  $hintNumber = 4;
 
 ?>
 
@@ -36,22 +36,22 @@
   <?php
       
       //On vérifie que les questions du niveau précédent ont bien étaient répondu.
-      $hints = getPlayerHints($_SESSION['bucque']);
-      $neededHints = [1,2,3]; //A changer suivant la question (pour les questions 1, 2 et 3, il faut laisser le  tableau vide)
+      $levels = getPlayerLevels($_SESSION['bucque']);
+      $neededLevels = [1]; //A changer suivant la question 
       /*
         Pour faire des tests, il est possible de commenter la ligne $hints = getPlayerHints($_SESSION['bucque']);
         Puis de décommenter la ligne $hint = $neededHints;
         Il est également possible de changer la valeur de $requestMonth pour 1 (janvier)
       */
 
-      //$hint = $neededHints;
+      //$levels = $neededLevels;
 
       $date = getdate();
 
       //$date['mday'] recupère le numero du jour, par ex mardi prochain on sera le 1, donc il faut vérifier que le jour actuelle ne soit pas plus petit que 1 (à mardi) pour que la question soit accessible. On vérifie également que le mois n'est pas différent de février soit 2. 
       $requestDay=1;
-      $requestMonth=2;
-      if(($date['mday']<$requestDay || $date['mon']!=$requestMonth) || (sizeof(array_diff($neededHints, $hints))!=0)){ 
+      $requestMonth=1;
+      if(($date['mday']<$requestDay || $date['mon']!=$requestMonth) || (sizeof(array_diff($neededLevels, $levels))!=0)){ 
       ?>
         <div >
           <p class="errorMessage">Pas lar's de répondre à cette question !</p>
