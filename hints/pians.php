@@ -3,11 +3,11 @@
 
   //On vérifie que la personne est connectée, sinon on la redirige vers la page de connection
 	if(!isset($_SESSION['bucque'])){
-		header("Location: ../login.php?p=abscences"); //Ne pas oublié de changer choucroute pour le nom du fichier.
+		header("Location: ../login.php?p=pians"); //Ne pas oublié de changer choucroute pour le nom du fichier.
 	}
 	
   require("../utils/user_utils.php"); // on importe user utils pour la suite.
-  $hintNumber = 20;
+  $hintNumber = 19;
 
 ?>
 
@@ -16,7 +16,7 @@
 <html>
   <head>
   	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Chapk'fet question n°20</title> <!-- Changer pour le bon num d'indice -->
+    <title>Chapk'fet question n°<?php echo($hintNumber); ?></title> <!-- Changer pour le bon num d'indice -->
 
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
@@ -102,10 +102,6 @@
         $numberOfGoodAnswers += 1;
     }
 
-    if(isset($_POST['nono'])==true){
-        $numberOfGoodAnswers += 1;
-    }
-
     //Calcul du nombre de point 
     $nbPlayerAnswers = getNbPlayerAnswer($hintNumber); //le 1 est le numéro de la question.
 
@@ -138,8 +134,8 @@
 Pour toucher au visuel de la question c'est ici
 -->
   		<form method="post">
-        <h1>Felicitation ! Tu as trouvé la question n°20</h1> <!-- Changer le numéro-->
-        <p>La question est : Qui à le plus d'abscences en cours ?</p> <!-- Ecrire la question-->
+        <h1>Felicitation ! Tu as trouvé la question n°<?php echo($hintNumber); ?></h1> <!-- Changer le numéro-->
+        <p>La question est : Qui a déjà dormi sur le pian's de la kfet ?</p> <!-- Ecrire la question-->
 
         <div class="formcontainer">
           <hr/>

@@ -3,11 +3,11 @@
 
   //On vérifie que la personne est connectée, sinon on la redirige vers la page de connection
 	if(!isset($_SESSION['bucque'])){
-		header("Location: ../login.php?p=abscences"); //Ne pas oublié de changer choucroute pour le nom du fichier.
+		header("Location: ../login.php?p=picars"); //Ne pas oublié de changer choucroute pour le nom du fichier.
 	}
 	
   require("../utils/user_utils.php"); // on importe user utils pour la suite.
-  $hintNumber = 20;
+  $hintNumber = 17;
 
 ?>
 
@@ -16,7 +16,7 @@
 <html>
   <head>
   	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Chapk'fet question n°20</title> <!-- Changer pour le bon num d'indice -->
+    <title>Chapk'fet question n°<?php echo($hintNumber); ?></title> <!-- Changer pour le bon num d'indice -->
 
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
@@ -37,7 +37,7 @@
       //On vérifie que les questions du niveau précédent ont bien étaient répondu.
       $levels = getPlayerLevels($_SESSION['bucque']);
       $hints = getPlayerHints($_SESSION['bucque']);
-      $neededLevels = [1,2,3,4,5,6]; //A changer suivant la question (pour les questions 1, 2 et 3, il faut laisser le  tableau vide)
+      $neededLevels = [1,2,3,4,5]; //A changer suivant la question (pour les questions 1, 2 et 3, il faut laisser le  tableau vide)
       /*
         Pour faire des tests, il est possible de commenter la ligne $hints = getPlayerHints($_SESSION['bucque']);
         Puis de décommenter la ligne $hints = $neededHints;
@@ -48,7 +48,7 @@
       $date = getdate();
 
       //$date['mday'] recupère le numero du jour, par ex mardi prochain on sera le 1, donc il faut vérifier que le jour actuelle ne soit pas plus petit que 1 (à mardi) pour que la question soit accessible. On vérifie également que le mois n'est pas différent de février soit 2. 
-      $requestDay=6;
+      $requestDay=5;
       $requestMonth=2;
 	  
 			//remodification des variables pour pouvoir effectuer des tests
@@ -98,11 +98,10 @@
 
 
     //Ici on vérifie les bonnes réponse, donc en gros il suffit de copier coller le if en changer juste le nom de la personne.
-    if(isset($_POST['esteban'])==true){
+    if(isset($_POST['arnaud'])==true){
         $numberOfGoodAnswers += 1;
     }
-
-    if(isset($_POST['nono'])==true){
+		if(isset($_POST['esteban'])==true){
         $numberOfGoodAnswers += 1;
     }
 
@@ -138,8 +137,8 @@
 Pour toucher au visuel de la question c'est ici
 -->
   		<form method="post">
-        <h1>Felicitation ! Tu as trouvé la question n°20</h1> <!-- Changer le numéro-->
-        <p>La question est : Qui à le plus d'abscences en cours ?</p> <!-- Ecrire la question-->
+        <h1>Felicitation ! Tu as trouvé la question n°<?php echo($hintNumber); ?></h1> <!-- Changer le numéro-->
+        <p>La question est : Qui s'est déjà pissé dessus à KIN ?</p> <!-- Ecrire la question-->
 
         <div class="formcontainer">
           <hr/>
