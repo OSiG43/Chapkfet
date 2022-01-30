@@ -1,0 +1,65 @@
+
+body  {
+      display: flex;
+      justify-content: center;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 15px;
+
+      }
+form  {
+      border: 0.3em solid #f1f1f1;
+
+      }
+
+input[type=text], input[type=password] {
+      width: 100%;
+      padding: 1.3em 0.8em;
+      margin: 0.6em 0;
+      display: inline-block;
+      border: 0.1rem solid #ccc;
+      box-sizing: border-box;
+      }
+
+button {
+      background-color: #8ebf42;
+      color: white;
+      padding: 1.1em 0;
+      margin: 0.5em 0;
+      border: none;
+      cursor: grabbing;
+      width: 100%;
+      }
+      
+h1    {
+      text-align:center;
+      font-size:3em;
+      }
+
+button:hover
+      {
+      opacity: 0.8;
+      }
+.formcontainer 
+      {
+      text-align: left;
+      margin: 0.5em 1em 0.25em;
+      }
+.container 
+      {
+      padding: 0.3em 0;
+      text-align:left;
+      }
+.errorMessage
+      {
+            color: #ba3939;
+            background: #ffe0e0;
+            border: 1px solid #a33a3a;
+      }
+
+      /* Change styles for span on extra small screens */
+@media screen and (max-width: 640px) {
+      h1{
+            font-size: 2em;
+      }
+
+}

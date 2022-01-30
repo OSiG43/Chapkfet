@@ -1,0 +1,280 @@
+
+@font-face {
+  font-family: OpenSans-Regular;
+  src: url('../fonts/OpenSans/OpenSans-Regular.ttf'); 
+}
+
+body  {
+      display: flex;
+      justify-content: center;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 15px;
+    }
+
+.container 
+      {
+      padding: 0.3em 0;
+      text-align:center;
+      border: 0.3em solid #f1f1f1;
+      }
+
+.manageContainer
+	{
+		display: block;
+		margin:2em 0 3em 0;
+	}
+
+.navContainer
+	{
+		display: inline-block;
+	}
+
+h1    {
+      text-align:center;
+      font-size:3em;
+      padding: 0.2rem 1rem;
+      }
+
+
+
+a.button{
+	display:inline-block;
+	padding:0.35em 1.2em;
+	border:0.1em solid #162246;
+	margin:0 0.3em 0.3em 0;
+	border-radius:0.12em;
+	box-sizing: border-box;
+	text-decoration:none;
+	font-family:'Roboto',sans-serif;
+	font-weight:300;
+	color:#162246;
+	text-align:center;
+	transition: all 0.2s;
+}
+a.button:hover{
+	color:#FFFFFF;
+	background-color:#8790AB;
+}
+
+#logout{
+	background-color: black;
+}
+
+.cancelButton{
+	display:inline-block;
+	padding: 0.1em 1.2em;
+    margin: 0 0.3em 0.3em 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    background-color: #8ebf42;
+    color: white;
+    border: none;
+    text-align: center;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+button {
+	  display:inline-block;
+      background-color: #8ebf42;
+      color: white;
+      padding: 0.35em 1.2em;
+      margin: 0 0.3em 0.3em 0;
+      border: none;
+      box-sizing: border-box;
+      font-size: 1.2em
+      }
+
+button:hover
+      {
+      opacity: 0.8;
+      }
+
+
+
+
+
+@media screen and (max-width: 640px) {
+
+	h1{
+		font-size: 1em;
+	}
+
+	a.button
+	{
+		display: block;
+		font-size:1rem;
+	}
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Table ]*/
+
+table {
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+table * {
+  position: relative;
+}
+table td, table th {
+  padding-left: 1px;
+  /*border-left: solid grey;*/
+}
+table thead tr {
+  height: 60px;
+  background: #36304a;
+}
+table tbody tr {
+  height: 50px;
+}
+table tbody tr:last-child {
+  border: 0;
+}
+table td, table th {
+  text-align: left;
+}
+table td.l, table th.l {
+  text-align: right;
+}
+table td.c, table th.c {
+  text-align: center;
+}
+table td.r, table th.r {
+  text-align: center;
+}
+
+
+.table-head th{
+  font-family: OpenSans-Regular;
+  font-size: 18px;
+  color: #fff;
+  line-height: 3;
+  font-weight: unset;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+tbody tr {
+  font-family: OpenSans-Regular;
+  font-size: 15px;
+  color: #808080;
+  line-height: 2;
+  font-weight: unset;
+
+}
+
+tbody tr:hover {
+  color: #555555;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.column1 {
+  width: 1em;
+  padding-left: 2em;
+
+}
+
+.column2 {
+  width: 8em;
+  text-align: center;
+  
+}
+
+.column3 {
+  width: 2em;
+  text-align: center;
+}
+
+.column4 {
+  width: 5em;
+  text-align: center;
+  
+}
+
+.column5 {
+  width: 7em;
+  text-align: center;
+ 
+}
+
+.column6 {
+  width: 10em;
+  text-align: center;
+  padding-right: 62px;
+}
+
+/*
+Formatage pour les téléphones
+*/
+@media screen and (max-width: 800px) {
+  table {
+    display: block;
+  }
+  table > *, table tr, table td, table th {
+    display: block;
+  }
+  table thead {
+    display: none;
+  }
+  table tbody tr {
+    height: auto;
+    padding: 37px 0;
+  }
+  table tbody tr td {
+    padding-left: 40% !important;
+    margin-bottom: 24px;
+    
+  }
+  table tbody tr td:last-child {
+    margin-bottom: 0;
+  }
+  table tbody tr td:before {
+    font-family: OpenSans-Regular;
+    font-size: 14px;
+    color: #999999;
+    /*line-height: 1.2;*/
+    font-weight: bold;
+    position: absolute;
+    width: 8em;
+    left: 1em;
+    top: 0;
+    text-align: left;
+    border-right: solid red;
+    color : #485190;
+    /*background: #36304a;*/
+
+  }
+ 
+  .column1,
+  .column2,
+  .column3, 
+  .column4,
+  .column5,
+  .column6 {
+    text-align: left;
+  }
+
+  .column4,
+  .column5,
+  .column6,
+  .column1,
+  .column2,
+  .column3 {
+    width: 100%;
+  }
+
+  tbody tr {
+    font-size: 14px;
+  }
+}
