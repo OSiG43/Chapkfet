@@ -17,7 +17,7 @@
 <html>
   <head>
   	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Chapk'fet question n°1</title> <!-- Changer pour le bon num d'indice -->
+    <title>Chapk'fet question n°<?php echo($hintNumber); ?></title> <!-- Changer pour le bon num d'indice -->
 
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
@@ -132,7 +132,7 @@
 Pour toucher au visuel de la question c'est ici
 -->
   		<form method="post">
-        <h1>Felicitation ! Tu as trouvé la question n°1</h1> <!-- Changer le numéro-->
+        <h1>Felicitation ! Tu as trouvé la question n°<?php echo($hintNumber); ?></h1> <!-- Changer le numéro-->
         <p>La question est : </p> <!-- Ecrire la question-->
 
         <div class="formcontainer">

@@ -148,7 +148,7 @@ function addPlayerArea($bucque, $levelId){
   global $conn;
 
   $currentsLevels = getPlayerLevels($bucque);
-  array_push($currentsLevels, $hintId);
+  array_push($currentsLevels, $levelId);
 
   $query = "UPDATE `users` SET levels='".implode(",", $currentsLevels)."' WHERE bucque='$bucque';";
   
