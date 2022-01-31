@@ -31,9 +31,9 @@
       //remodification des variables pour pouvoir effectuer des tests
       /*
       $levels = $neededLevels;
-      */
       $requestDay=$date['mday'];
       $requestMonth=$date['mon'];
+      */
     
       if(($date['mday']<$requestDay || $date['mon']!=$requestMonth) || (sizeof(array_diff($neededLevels, $levels))!=0)){ 
       ?>
