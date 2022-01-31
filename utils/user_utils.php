@@ -1,5 +1,12 @@
 <?php
-require("../config/config_db.php");
+if(file_exists("../config/config_db.php")){
+  require("../config/config_db.php");
+}elseif(file_exists("config/config_db.php")){
+ require("config/config_db.php");
+}else{
+  die("Unable to load config_db !");
+}
+
 
 /*
 Getters
