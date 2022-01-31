@@ -14,7 +14,7 @@
   $requestDay=2;
   $question="Qui cuisine le mieux ?";
 
-  $neededLevels = range(1,$requestDay)
+  $neededLevels = range(1,$requestDay);
   $requestMonth=2;
   require('../hints/template.php');
 ?>

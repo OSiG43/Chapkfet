@@ -31,9 +31,9 @@
       //remodification des variables pour pouvoir effectuer des tests
       /*
       $levels = $neededLevels;
+      */
       $requestDay=$date['mday'];
       $requestMonth=$date['mon'];
-      */
     
       if(($date['mday']<$requestDay || $date['mon']!=$requestMonth) || (sizeof(array_diff($neededLevels, $levels))!=0)){ 
       ?>
@@ -125,7 +125,7 @@ Pour toucher au visuel de la question c'est ici
 -->
       <form method="post">
         <h1>Felicitation ! Tu as trouvé la question n°<?php echo($hintNumber); ?></h1> <!-- Changer le numéro-->
-        <p>La question est : <?php echo($question); ?></p> <!-- Ecrire la question-->
+        <p id="question">La question est :<br><?php echo($question); ?></p> <!-- Ecrire la question-->
 
         <div class="formcontainer">
           <hr/>
@@ -169,7 +169,7 @@ Pour toucher au visuel de la question c'est ici
 
           </div>
           <hr/>
-      <h3>/!\ Toute réponse est définitive /!\</h3>
+          <h3>/!\ Toute réponse est définitive /!\</h3>
           <button type="submit">Valider</button>
         </div>
     </form>

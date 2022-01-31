@@ -14,7 +14,7 @@
   $requestDay=6;
   $question="Qui à le plus d'abscences en cours ?";
 
-  $neededLevels = range(1,$requestDay)
+  $neededLevels = range(1,$requestDay);
   $requestMonth=2;
   require('../hints/template.php');
 ?>

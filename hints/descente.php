@@ -14,7 +14,7 @@
   $requestDay=3;
   $question="Qui boit le plus vite ?";
 
-  $neededLevels = range(1,$requestDay)
+  $neededLevels = range(1,$requestDay);
   $requestMonth=2;
   require('../hints/template.php');
 ?>

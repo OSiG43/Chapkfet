@@ -14,7 +14,7 @@
   $requestDay=5;
   $question="Qui s'est déjà pissé dessus à KIN ?";
 
-  $neededLevels = range(1,$requestDay)
+  $neededLevels = range(1,$requestDay);
   $requestMonth=2;
   require('../hints/template.php');
 ?>

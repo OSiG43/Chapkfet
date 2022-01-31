@@ -14,7 +14,7 @@
   $requestDay=1;
   $question="Qui a déjà dormi dans l'ascenseur ?";
 
-  $neededLevels = range(1,$requestDay)
+  $neededLevels = range(1,$requestDay);
   $requestMonth=2;
   require('../hints/template.php');
 ?>

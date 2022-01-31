@@ -4,7 +4,7 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Débloquage zone n°<?php echo($levelToUnlock); ?></title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="../css/level.css">
+    <link rel="stylesheet" href="../css/level.css?version=1">
   </head>
   <body>
 
@@ -27,7 +27,7 @@
       //test si le débloquage de la zone peut se faire ou si il est trop tôt
       if(($date['mday']<$requestDay || $date['mon']!=$requestMonth)){ 
       ?>
-        <div >
+        <div class="centre">
           <p class="errorMessage">Pas lar's de débloquer cette zone !</p>
           <p>Il est un peu tôt pour ça</p>
 
@@ -44,7 +44,7 @@
       //test si la zone a déjà été débloquée
       if(in_array( $levelToUnlock , $userLevels )){
       ?>
-        <div>
+        <div class="centre">
           <h1>Tu as déjà débloqué la zone n°<?php echo($levelToUnlock)?> !</h1>
           <a href="../index.php" class="button">Retour à la carte</a>
         </div>
@@ -80,8 +80,9 @@
 <!-- 
 Pour toucher au visuel de la question c'est ici
 -->
-    <div >
-  		<h1>Felicitation ! Tu as déjà débloqué la zone n°<?php echo($levelToUnlock)?></h1>
+    <div class="centre">
+  		<h1>Felicitation !</h1>
+      <p>Tu viens de débloquer la zone n°<?php echo($levelToUnlock)?></p>
       <a href="../index.php" class="button">Retour à la carte</a>
     </div >
   </body>

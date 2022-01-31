@@ -14,7 +14,7 @@
   $requestDay=6;
   $question="Qui a dejà vomi dans la kfet ?";
 
-  $neededLevels = range(1,$requestDay)
+  $neededLevels = range(1,$requestDay);
   $requestMonth=2;
   require('../hints/template.php');
 ?>
