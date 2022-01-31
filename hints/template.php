@@ -6,7 +6,7 @@
 
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="../css/hints.css">
+    <link rel="stylesheet" href="../css/hints.css?version=2">
 
 
   </head>
@@ -31,9 +31,9 @@
       //remodification des variables pour pouvoir effectuer des tests
       /*
       $levels = $neededLevels;
+      */
       $requestDay=$date['mday'];
       $requestMonth=$date['mon'];
-      */
     
       if(($date['mday']<$requestDay || $date['mon']!=$requestMonth) || (sizeof(array_diff($neededLevels, $levels))!=0)){ 
       ?>
@@ -130,40 +130,40 @@ Pour toucher au visuel de la question c'est ici
         <div class="formcontainer">
           <hr/>
           <div class="container">
-            <div class="answer">
-              <img class="answerImg" src="../assets/esteban.jpg">
-              <input type="checkbox" name="checkbox_id[]" value="esteban">
-            </div>
+            <label for="esteban" class="answer">
+              <img class="answerImg" src="../assets/esteban.gif">
+              <input type="checkbox" name="checkbox_id[]" value="esteban" id="esteban" >
+            </label>
 
-            <div class="answer">
-              <img class="answerImg" src="../assets/arnaud.jpg">
-              <input type="checkbox" name="checkbox_id[]" value="arnaud" >
-            </div>
+            <label for="arnaud" class="answer">
+              <img class="answerImg" src="../assets/arnaud.gif">
+              <input type="checkbox" name="checkbox_id[]" value="arnaud" id="arnaud" >
+            </label>
 
-            <div class="answer">
-              <img class="answerImg" src="../assets/olive.jpg">
-              <input type="checkbox" name="checkbox_id[]" value="olive" >
-            </div>
+            <label for="olive" class="answer">
+              <img class="answerImg" src="../assets/olive.gif">
+              <input type="checkbox" name="checkbox_id[]" value="olive" id="olive" >
+            </label>
 
-            <div class="answer">
-              <img class="answerImg" src="../assets/laurane.jpg">
-              <input type="checkbox" name="checkbox_id[]" value="laurane" >
-            </div>
+            <label for="laurane" class="answer">
+              <img class="answerImg" src="../assets/laurane.gif">
+              <input type="checkbox" name="checkbox_id[]" value="laurane" id="laurane" >
+            </label>
 
-            <div class="answer">
-              <img class="answerImg" src="../assets/lyssandre.jpg">
-              <input type="checkbox" name="checkbox_id[]" value="lyssandre" >
-            </div>
+            <label for="lyssandre" class="answer">
+              <img class="answerImg" src="../assets/lyssandre.gif">
+              <input type="checkbox" name="checkbox_id[]" value="lyssandre" id="lyssandre" >
+            </label>
 
-            <div class="answer">
-              <img class="answerImg" src="../assets/eytan.jpg">
-              <input type="checkbox" name="checkbox_id[]" value="eytan" >
-            </div>
+            <label for="eytan" class="answer">
+              <img class="answerImg" src="../assets/eytan.gif">
+              <input type="checkbox" name="checkbox_id[]" value="eytan" id="eytan" >
+            </label>
 
-             <div class="answer">
-              <img class="answerImg" src="../assets/nono.jpg">
-              <input type="checkbox" name="checkbox_id[]" value="nono">
-            </div>
+            <label for="nono" class="answer">
+              <img class="answerImg" src="../assets/nono.gif">
+              <input type="checkbox" name="checkbox_id[]" value="nono" id="nono">
+            </label>
 
             <input type="hidden" name="formSent">
 
