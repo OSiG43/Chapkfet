@@ -50,8 +50,7 @@ class Floor0 extends Phaser.Scene {
 
 		
 
-		this.cameras.main.setZoom(0.5);
-	    this.cameras.main.centerOn(600, 3500);
+		this.cameras.main.setZoom(3);
 	    this.cameras.main.setBounds(-100,-100,this.mapSize.width+100,this.mapSize.height+100);
 
 	    this.maskImage = this.make.image({
@@ -63,7 +62,7 @@ class Floor0 extends Phaser.Scene {
 
 	   	const mask = this.maskImage.createBitmapMask();
 
-	    //this.cameras.main.setMask(mask);
+	    this.cameras.main.setMask(mask);
 
 	    this.maskImage.setDisplaySize(this.scale.width,this.scale.height);
 
