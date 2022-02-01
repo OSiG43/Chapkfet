@@ -25,7 +25,7 @@ class Floor0 extends Phaser.Scene {
 				mapPath='assets/floor0_level1';
 			break;
 		}
-		this.preloadMap('floor0', mapPath, 5, 3);
+		this.preloadMap('floor0', mapPath, 5, 5);
 
 		this.load.image('qrcode', 'assets/qrcode.png');
 		this.load.image('mask', 'assets/soft-mask.png');

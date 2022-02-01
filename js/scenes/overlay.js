@@ -22,7 +22,7 @@ create(){
 
 	logout_button.on('pointerdown', function (pointer) {
 
-        alert("Indice cliqué")
+         document.location.href="logout.php";
 
     });
 
