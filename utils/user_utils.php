@@ -121,7 +121,7 @@ function getPlayerInfo($bucque){
 /*
 Setters
 */
-function creationCompte($bucque,$fams,$password,$points=0,$hints='',$levels='',$is_admin=False){
+function creationCompte($bucque,$fams,$password,$points=0,$hints='',$levels='1',$is_admin=False){
   global $conn;
   if ($is_admin) {
     $admin=1;
