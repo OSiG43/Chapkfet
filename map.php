@@ -25,7 +25,7 @@ $answerList=getPlayerHints($_SESSION['bucque']);
 
     </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.60.0-beta.3/phaser.min.js"></script>
+    <script src="js/phaser.js"></script>
     <script type ="module" src="js/app.js"></script>
 
 </head>

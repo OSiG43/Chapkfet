@@ -6,10 +6,13 @@ constructor(){
 
 preload(){
 	this.load.image('logout_button', 'assets/logout_button.png');
+	
 }
 
 create(){
-	//console.log(this);
+	
+	
+
 	var logout_button = this.add.image(this.game.scale.width-20*(window.innerWidth/700),5,'logout_button').setOrigin(1,0).setInteractive();
 	logout_button.setScale(0.4*(window.innerWidth/700));
 
@@ -22,13 +25,12 @@ create(){
 	//this.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
 
     this.input.on('pointerup', function (pointer) {
-    console.log(this);
-    if (!this.scene.scale.isFullscreen)
-    {
-        this.scene.scale.startFullscreen();
+    if(this.scene.scale.fullscreen.available){
+    	if (!this.scene.scale.isFullscreen)
+    	{
+        	this.scene.scale.startFullscreen();
+    	}
     }
-    
-
     });
 }
 

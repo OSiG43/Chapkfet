@@ -7,10 +7,23 @@ import Kfet from "./scenes/kfet";
 import Overlay from "./scenes/overlay";
 
 const config = {
-	width: window.innerWidth,
-	height: window.innerHeight,
 	type: Phaser.AUTO,
-	parents: 'game',
+	scale: {
+		mode: Phaser.Scale.RESIZE,
+		parents: 'game',
+		width: '100%',
+        height: '100%'
+	},
+	physics: {
+        default: 'arcade',
+        matter: {
+            debug: true,
+            gravity: {
+                y: 0
+            },
+        }
+    },
+	autoCenter: Phaser.Scale.CENTER_BOTH,
 	input: {
         touch: {
             capture: true

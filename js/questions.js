@@ -9,9 +9,9 @@ class Question{
 	}
 }
 
-let question1 = new Question(1, "Ascenseur", {x:100,y:200}, 1, 1, 0);
+let question1 = new Question(1, "Ascenseur", {x:1544,y:3171}, 1, 1, 0);
 let question2 = new Question(2, "Salle de Bain", {x:50,y:100}, 1, 1, 0);
-let question3 = new Question(3, "Dessin", {x:400,y:400}, 1, 1, 0);
+let question3 = new Question(3, "Dessin", {x:600,y:2500}, 1, 1, 0);
 let question4 = new Question(4, "Cuisine", {x:1,y:2}, 2, 2, 1);
 let question5 = new Question(5, "Biaude kfet", {x:1,y:2}, 2, 2, 1);
 let question6 = new Question(6, "Ronflement", {x:1,y:2}, 2, 2, 1);
