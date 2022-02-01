@@ -1,10 +1,10 @@
 
-import Floor0 from "./scenes/floor0";
-import Floor1 from "./scenes/floor1";
-import Floor2 from "./scenes/floor2";
-import Floor3 from "./scenes/floor3";
-import Kfet from "./scenes/kfet";
-import Overlay from "./scenes/overlay";
+import Floor0 from "./scenes/floor0.js";
+import Floor1 from "./scenes/floor1.js";
+import Floor2 from "./scenes/floor2.js";
+import Floor3 from "./scenes/floor3.js";
+import Kfet from "./scenes/kfet.js";
+import Overlay from "./scenes/overlay.js";
 
 const config = {
 	type: Phaser.AUTO,
@@ -22,6 +22,9 @@ const config = {
                 y: 0
             },
         }
+    },
+    dom: {
+        createContainer: true
     },
 	autoCenter: Phaser.Scale.CENTER_BOTH,
 	input: {

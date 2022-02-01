@@ -7,11 +7,53 @@ body{
     top:0;
     left:0;
 	*/
-    width: 100%;
-    height: 100%;
+    
 }
 
 .game:-webkit-full-screen  {
   width: 100%;
   height: 100%;
 }
+
+      /* Positionnez la forme Popup */
+      .scan-popup {
+        position: relative;
+        text-align: center;
+        width: 100%;
+      }
+      /* Masquez la forme Popup */
+      .scan-popup {
+        display: none;
+        position: fixed;
+        left: 45%;
+        top: 5%;
+        transform: translate(-45%, 5%);
+        border: 2px solid #666;
+        z-index: 9;
+      }
+      /* Styles pour le conteneur de la forme */
+      .scan-container {
+        max-width: 300px;
+        padding: 20px;
+        background-color: #fff;
+      }
+      
+
+      /* Stylez le bouton de connexion */
+      .scan-container .btn {
+        background-color: #8ebf42;
+        color: #fff;
+        padding: 12px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 10px;
+        opacity: 0.8;
+      }
+      /* Stylez le bouton pour annuler */
+      .scan-container .cancel {
+        background-color: #cc0000;
+      }
+      /* Planez les effets pour les boutons */
+      .scan-container .btn:hover,
+     

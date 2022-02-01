@@ -1,5 +1,5 @@
-import {onPointerMove, onPointerDown, onPointerUp} from "../event"
-import questionList from "../questions"
+import {onPointerMove, onPointerDown, onPointerUp} from "../event.js"
+import questionList from "../questions.js"
 
 class Floor0 extends Phaser.Scene {
 
@@ -50,7 +50,7 @@ class Floor0 extends Phaser.Scene {
 
 		
 
-		this.cameras.main.setZoom(3);
+		this.cameras.main.setZoom(1);
 	    this.cameras.main.setBounds(-100,-100,this.mapSize.width+100,this.mapSize.height+100);
 
 	    this.maskImage = this.make.image({
@@ -73,8 +73,13 @@ class Floor0 extends Phaser.Scene {
 	    //Ajout des positions des questions
 	    questionList.forEach(question => {
 	    	if (question.level==level) {
-	    		let mark = this.add.image(question.pos.x,question.pos.y,'qrcode').setOrigin(0);
+	    		let mark = this.add.image(question.pos.x,question.pos.y,'qrcode').setOrigin(0).setInteractive();
 	    		mark.setScale(0.2);
+	    		mark.on('pointerdown', function (pointer) {
+
+        			openForm();
+
+   				});
 	    		questionMarkList.push(mark);
 	    	}
 	    });
@@ -94,6 +99,7 @@ class Floor0 extends Phaser.Scene {
 		// get colour of pixel at x = 3, y = 2
 		let col = data.getColorAt(3, 2)
 		console.log(col);*/
+
 		
 	}
 

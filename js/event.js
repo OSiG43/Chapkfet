@@ -10,6 +10,7 @@ export function onPointerMove(pointer){
 }
 
 export function onPointerDown(pointer){
+
 		movePlayer(pointer, this.scene);
 		console.log('x:'+pointer.worldX+'|y:'+pointer.worldY);
 }
