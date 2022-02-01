@@ -121,7 +121,7 @@ function getPlayerInfo($bucque){
 /*
 Setters
 */
-function creationCompte($bucque,$nom,$fams,$password,$points=0,$hints='',$levels='',$is_admin=False){
+function creationCompte($bucque,$fams,$password,$points=0,$hints='',$levels='',$is_admin=False){
   global $conn;
   if ($is_admin) {
     $admin=1;
@@ -129,8 +129,8 @@ function creationCompte($bucque,$nom,$fams,$password,$points=0,$hints='',$levels
     $admin=0;
   }
 
-  $query = "INSERT into `users` (bucque,nom,fams,password,points,hints,levels,admin)
-        VALUES ('$bucque', '$nom', '$fams', '".hash('sha256', $password)."', '$points', '$hints', '$levels', '$admin')";
+  $query = "INSERT into `users` (bucque,fams,password,points,hints,levels,admin)
+        VALUES ('$bucque', '$fams', '".hash('sha256', $password)."', '$points', '$hints', '$levels', '$admin')";
 
   $res = mysqli_query($conn, $query) or die(mysqli_error($conn));
 

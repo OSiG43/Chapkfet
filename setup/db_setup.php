@@ -5,7 +5,6 @@ require("../config/config_db.php");
 $query = "CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `bucque` varchar(100) NOT NULL,
-  `nom` varchar(100) NOT NULL,
   `fams` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `points` int(11) DEFAULT 0 NOT NULL ,

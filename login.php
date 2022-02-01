@@ -5,7 +5,7 @@
     
     <title>Chapk'fet</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/login.css?version=1">
   </head>
   <body>
 <?php
@@ -64,6 +64,11 @@ if(isset($_POST['bucque'])){
         <input type="checkbox"  checked="checked" name="remember"> Remember me
         </label>
       </div>
+
+      <div class="centre">
+          <a href="inscription.php" class="button">inscription</a>
+      </div>
+
       </div>
     </form>
   </body>
