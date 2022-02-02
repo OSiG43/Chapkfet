@@ -1,4 +1,4 @@
-import {onPointerMove} from "../event"
+import {onPointerMove} from "../event.js"
 
 class Floor3 extends Phaser.Scene {
 

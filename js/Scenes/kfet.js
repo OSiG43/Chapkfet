@@ -1,4 +1,4 @@
-import {onPointerMove} from "../event"
+import {onPointerMove} from "../event.js"
 
 class Kfet extends Phaser.Scene {
 

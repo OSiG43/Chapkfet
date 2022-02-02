@@ -6,7 +6,7 @@
 	
 </head>
 <body>
-	<div id="reader" width="600px"></div>
+	<div id="reader" width="95%"></div>
 </body>
 
 <script type="text/javascript">

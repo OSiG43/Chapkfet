@@ -139,14 +139,9 @@ class Floor0 extends Phaser.Scene {
 	addQuestionSpots(){
 		//Ajout des positions des questions
 	    questionList.forEach(question => {
-	    	if (question.level==this.level) {
-	    		let mark = this.add.image(question.pos.x,question.pos.y,'qrcode').setOrigin(0).setInteractive();
+	    	if (question.level==this.level && !answerList.includes(question.id)) {
+	    		let mark = this.add.image(question.pos.x,question.pos.y,'qrcode').setOrigin(0);
 	    		mark.setScale(0.2);
-	    		mark.on('pointerdown', function (pointer) {
-
-        			openForm();
-
-   				});
 	    		this.questionMarkList.push(mark);
 	    	}
 	    });

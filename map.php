@@ -32,23 +32,6 @@ $answerList=getPlayerHints($_SESSION['bucque']);
 <body>
 	<div class="game"></div>
 
-	<div class="scan-popup" id="scanPopup">
-      <div class="scan-popup" id="popupScan">
-        <div class="scan-container">
-        	<p>Ceci est un test !!</p>
-          <button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
-        </div>
-      </div>
-    </div>
 
-<script>
-      function openForm() {
-        document.getElementById("scanPopup").style.display = "block";
-      }
-
-      function closeForm() {
-        document.getElementById("scanPopup").style.display = "none";
-      }
-    </script>
 </body>
 </html>
