@@ -1,8 +1,10 @@
 body  {
-      display: flex;
-      justify-content: center;
-      font-family: Roboto, Arial, sans-serif;
-      font-size: 15px;
+	display: flex;
+	justify-content: center;
+	font-family: Roboto, Arial, sans-serif;
+	font-size: 15px;
+	flex-direction: column;
+	align-items:center;
     }
 
 
@@ -19,6 +21,7 @@ a.button{
 	color:#162246;
 	text-align:center;
 	transition: all 0.2s;
+	width:10em;
 }
 a.button:hover{
 	color:#FFFFFF;

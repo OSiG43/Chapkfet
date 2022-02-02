@@ -95,7 +95,7 @@ function getNbPlayerAnswer($hintNum){
 function getAllPlayerInfo($order = "id"){
 	global $conn;
 
-	$query = "SELECT id, bucque, points, hints, levels , admin FROM `users` ORDER BY ".$order.";";
+	$query = "SELECT id, bucque, fams, points, hints, levels , admin FROM `users` ORDER BY ".$order.";";
   
   	$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
   
@@ -105,7 +105,7 @@ function getAllPlayerInfo($order = "id"){
 function getPlayerInfo($bucque){
 	global $conn;
 
-	$query = "SELECT id, bucque, points, hints, levels, admin FROM `users` WHERE bucque=".$bucque.";";
+	$query = "SELECT id, bucque, fams, points, hints, levels, admin FROM `users` WHERE bucque=".$bucque.";";
   
   	$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
   
@@ -199,15 +199,10 @@ function setPlayerPassword($bucque, $psw){
 	return $result;
 }
 
-function setPlayerData($oldbucque, $bucque, $point, $hints, $levels, $is_admin){
+function setPlayerData($bucque, $point, $hints, $levels, $admin){
   global $conn;
-  if ($is_admin) {
-    $admin=1;
-  }else{
-    $admin=0;
-  }
 
-  $query = "UPDATE `users` SET bucque= ".$bucque." points= ".$point." hints= ".$hints." levels= ".$levels." admin=".$admin." WHERE bucque='$oldbucque';";
+  $query = "UPDATE `users` SET points= ".$point.", hints='".$hints."', levels='".$levels."', admin=".$admin." WHERE bucque='$bucque';";
   
     $result = mysqli_query($conn,$query) or die(mysqli_error($conn));
   return $result;

@@ -32,18 +32,21 @@
 	   		 content: "Bucque";
 	  		}
 	  		table tbody tr td:nth-child(3):before {
-	  		  content: "Points";
+	   		 content: "Fam's";
 	  		}
 	  		table tbody tr td:nth-child(4):before {
-	  		  content: "Indices";
+	  		  content: "Points";
 	  		}
 	  		table tbody tr td:nth-child(5):before {
-	  		  content: "Niveaux";
+	  		  content: "Indices";
 	  		}
 	  		table tbody tr td:nth-child(6):before {
-	   		 content: "Administrateur ?";
+	   		 content: "Niveaux";
 	  		}
 	  		table tbody tr td:nth-child(7):before {
+	   		 content: "Administrateur ?";
+	  		}
+	  		table tbody tr td:nth-child(8):before {
 	   		 content: "Edit";
 	  		}
 	  	}
@@ -56,6 +59,8 @@
   			<h1>Administration des joueurs.</h1>
   			<div class="navContainer">
   				<a href="../index.php" class="button">Accueil</a>
+  				<a href="home.php" class="button">Accueil Admin</a>
+  				<a href="manage_players.php" class="button">Gestion joueurs</a>
   				<a href="../logout.php" class="button" name="logout" style="text-align: right;">Déconnection</a>
   			</div>
   			<hr>
@@ -65,11 +70,12 @@
 							<tr class="table-head">
 								<th class="column1">Id</th>
 								<th class="column2">Bucque</th>
-								<th class="column3">Points</th>
-								<th class="column4">Indices</th>
-								<th class="column5">Niveaux</th>
-								<th class="column6">Administrateur ?</th>
-								<th class="column7">Edit</th>
+								<th class="column3">Fam's</th>
+								<th class="column4">Points</th>
+								<th class="column5">Indices</th>
+								<th class="column6">Niveaux</th>
+								<th class="column7">Administrateur ?</th>
+								<th class="column8">Edit</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -78,66 +84,56 @@
 						<?php
 						    //Le code ci-dessous ne s'execute que lorsque le bouton valider à été appuyé.
 						  if(isset($_POST['formSent'])){
+								$player = getPlayerInfo($_GET['bucque']);
+								$bucque = $player['bucque'];
 
-		            $bucque = stripslashes($_REQUEST['bucque']);
-		            $bucque = mysqli_real_escape_string($conn, $bucque);
-		            $points = stripslashes($_REQUEST['points']);
-		            $points = mysqli_real_escape_string($conn, $fams);
+		            $points = intval(stripslashes($_REQUEST['points']));
 		            $hints = stripslashes($_REQUEST['hints']);
-		            $hints = mysqli_real_escape_string($conn, $mdp);
-		            $levels = intval(stripslashes($_REQUEST['levels']));
-		            
-
-		            if(empty($bucque)){
-		            	$bucque=$player['bucque'];
-		            }
+		            $levels = stripslashes($_REQUEST['levels']);
 		 
-		            if(empty($points)){
+		            if( !(isset($points)) ){
 		            	$points=$player['points'];
-		            }
-
-		            if(empty($hints)){
-		            	$hints=$player['hints'];
 		            }
 
 		            if(empty($levels)){
 		            	$levels=$player['levels'];
+		            	if(empty($levels)){
+		            		$levels="''";
+		            	}
 		            }
 						    
-
-		            if(!empty($isAdmin)){
-									$isAdmin=True;
+		            if(!empty($_POST['is_admin'])){
+									$admin=1;
 								}else{
-									$isAdmin=False;
+									$admin=0;
 								}
 
-								$oldbucque=$player['bucque'];
-								setPlayerData($oldbucque, $bucque, $points, $hints, $levels, $is_admin);
+								setPlayerData($bucque, $points, $hints, $levels, $admin);
 						    header("Location: manage_players.php");
-
-						    }
 						  }
 						  ?>
 
 							<form method='post'>
-							<?php
-								
+								<?php
 								$player = getPlayerInfo($_GET['bucque']);
-									echo("
-										<tr>
-											
-												<td class='column1'>".$player['id']."</td>
-												<td class='column2'><input type='text'  name='bucque' value=".$player['bucque']."></td>
-												<td class='column3'><input type='text'  name='points' value=".$player['points']."></td>
-												<td class='column4'><input type='text'  name='hints' value=".$player['hints']."></td>
-												<td class='column5'><input type='text'  name='levels' value=".$player['levels']."></td>
-												<td class='column6'><input type='checkbox'  name='isAdmin' ".($player['admin']==1 ? 'checked' : "")."></td>
-												<td class='column7'><button type='submit'>Validé</button> <a class='cancelButton' href='manage_players.php'>Annuler</a></td>
-											
-										</tr>
-									");
-								
-							?>
+								echo("
+									<tr>
+										
+											<td class='column1'>".$player['id']."</td>
+											<td class='column2'>".$player['bucque']."</td>
+											<td class='column3'>".$player['fams']."</td>
+											<td class='column4'><input type='text'  name='points' value=".$player['points']."></td>
+											<td class='column5'><input type='text'  name='hints' value=".$player['hints']."></td>
+											<td class='column6'><input type='text'  name='levels' value=".$player['levels']."></td>
+											<td class='column7'><input type='checkbox'  name='is_admin' ".($player['admin']==1 ? 'checked' : "")."></td>
+											<td class='column8'><button type='submit'>Validé</button> <a class='cancelButton' href='manage_players.php'>Annuler</a></td>
+										
+									</tr>
+								");
+									
+								?>
+
+	            	<input type="hidden" name="formSent">
 							</form>
 						</tbody>
 					</table>

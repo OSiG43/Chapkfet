@@ -63,16 +63,21 @@ a.button:hover{
 .cancelButton{
 	display:inline-block;
 	padding: 0.1em 1.2em;
-    margin: 0 0.3em 0.3em 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    background-color: #8ebf42;
-    color: white;
-    border: none;
-    text-align: center;
-    font-size: 1em;
-    font-weight: 600;
+	margin: 0 0.3em 0.3em 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	background-color: #ca5252;
+	color: white;
+	border: none;
+	text-align: center;
+	font-size: 1em;
+	font-weight: 600;
 }
+
+.cancelButton:hover
+      {
+      opacity: 0.8;
+      }
 
 button {
 	  display:inline-block;
@@ -192,23 +197,35 @@ tbody tr:hover {
 }
 
 .column3 {
+  width: 4em;
+  text-align: center;
+}
+
+
+.column4 {
   width: 2em;
   text-align: center;
 }
 
-.column4 {
+.column5 {
   width: 5em;
   text-align: center;
   
 }
 
-.column5 {
+.column6 {
+  width: 5em;
+  text-align: center;
+  
+}
+
+.column7 {
   width: 7em;
   text-align: center;
  
 }
 
-.column6 {
+.column8 {
   width: 10em;
   text-align: center;
   padding-right: 62px;
@@ -261,7 +278,9 @@ Formatage pour les téléphones
   .column3, 
   .column4,
   .column5,
-  .column6 {
+  .column6,
+  .column7,
+  .column8 {
     text-align: left;
   }
 
@@ -270,7 +289,9 @@ Formatage pour les téléphones
   .column6,
   .column1,
   .column2,
-  .column3 {
+  .column3,
+  .column7,
+  .column8 {
     width: 100%;
   }
 
