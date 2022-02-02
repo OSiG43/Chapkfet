@@ -3,9 +3,11 @@
 <head>
 	<title>Chapkfet qrCode scanner</title>
 	<script src="js/html5-qrcode.min.js"></script>
+    	<link rel="stylesheet" href="../css/qrscan.css">
 	
 </head>
 <body>
+	<a href="../index.php" class="button">Accueil</a>
 	<div id="reader" width="95%"></div>
 </body>
 

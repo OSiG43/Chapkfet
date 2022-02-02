@@ -1,0 +1,26 @@
+body  {
+      display: flex;
+      justify-content: center;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 15px;
+    }
+
+
+a.button{
+	display:inline-block;
+	padding:0.35em 1.2em;
+	border:0.1em solid #162246;
+	margin:0 0.3em 0.3em 0;
+	border-radius:0.12em;
+	box-sizing: border-box;
+	text-decoration:none;
+	font-family:'Roboto',sans-serif;
+	font-weight:300;
+	color:#162246;
+	text-align:center;
+	transition: all 0.2s;
+}
+a.button:hover{
+	color:#FFFFFF;
+	background-color:#8790AB;
+}
