@@ -10,6 +10,7 @@ class Floor0 extends Phaser.Scene {
 
 	preload(){
 		let mapPath;
+
 		let level = currentLevel<=3 ? currentLevel : 3;
 		switch(level){
 			case 1:
@@ -50,7 +51,7 @@ class Floor0 extends Phaser.Scene {
 		this.createPlayer();
 
 
-		this.cameras.main.setZoom(1.5);
+		this.cameras.main.setZoom(1);
 	    this.cameras.main.setBounds(-100,-100,this.mapSize.width+100,this.mapSize.height+100);
 
 	    this.maskImage = this.make.image({
