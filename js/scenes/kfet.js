@@ -1,14 +1,14 @@
 import {onPointerMove} from "../event.js"
 
-class Floor3 extends Phaser.Scene {
+class Kfet extends Phaser.Scene {
 
 	constructor() {
-		super('floor3');
+		super('kfet');
 	}
 
 
 	preload(){
-		this.load.image('floor3', 'assets/floor3.png');
+		this.load.image('kfet', 'assets/kfet.png');
 	}
 
 	create(){
@@ -17,7 +17,7 @@ class Floor3 extends Phaser.Scene {
 	let circle;
 
 		
-	map = this.add.image(0,0,'floor3').setOrigin(0);
+	map = this.add.image(0,0,'kfet').setOrigin(0);
 	
 	map.setScale(1.5);
 	
@@ -39,4 +39,4 @@ class Floor3 extends Phaser.Scene {
 	}
 }
 
-export default Floor3;
+export default Kfet;
