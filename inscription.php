@@ -81,6 +81,15 @@
 
         
         <form method="post">
+            <p>
+                Bienvenu(e) dans le jeux de la semaine motiv's de la ChapK'fet.<br>
+L'objectif de ce jeux est d'obtenir le plus de points pour pouvoir remporter le graal.<br>
+Comment remporter des points ? <br>
+Chaque jour de la semaine, un nouveau niveau sera déblocable. Pour le débloquer, il faudra trouver dans la rez le QRcode de déblocage.<br>
+Une fois ce QRcode trouvé, vous débloquez le niveau et vous devez maintenant trouver les QRcodes défis. Ces derniers vous enverons vers des défis sous forme de QCM. Chaque bonne réponse vaut 1 point.<br>
+Chaque soir, vous pourrez vous rendre compte des points que vous aurez gagné dans la journée et à la fin de la semaine, celui ou celle qui aura obtenu le plus de points remportera ... .<br>
+A vos téléphones ! Et c'est parti !
+            </p>
             <h1>Inscription</h1>
             <div class="container">
                 <label=><strong>Bucque</strong></label>
