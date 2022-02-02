@@ -11,6 +11,6 @@ if os.path.isdir(path+"\\qrcode"):
 files = os.listdir(path)
 
 for f in files :
-    Qr = qrcode.make("hints/"+f)
+    Qr = qrcode.make("https://motivss.rezal.fr/hints/"+f)
     Qr.save("Question-"+f.strip(".php")+".png")
 print(os.path.basename(__file__))
