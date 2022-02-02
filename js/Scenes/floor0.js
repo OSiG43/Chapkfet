@@ -1,5 +1,6 @@
-import {onPointerMove, onPointerDown, onPointerUp} from "../event.js"
+import {onPointerMove, onPointerDown, onPointerUp, eventsCenter} from "../event.js"
 import questionList from "../questions.js"
+import tpList from "../tp.js"
 
 class Floor0 extends Phaser.Scene {
 
@@ -25,7 +26,7 @@ class Floor0 extends Phaser.Scene {
 				mapPath='assets/floor0_level1';
 			break;
 		}
-		this.preloadMap('floor0', mapPath, 5, 5);
+		this.preloadMap('floor0', mapPath, 5, 4);
 
 		this.load.image('qrcode', 'assets/qrcode.png');
 		this.load.image('mask', 'assets/soft-mask.png');
@@ -34,23 +35,22 @@ class Floor0 extends Phaser.Scene {
 	}
 
 	create(){
-
-		this.addGetPixels();
-
 		let map;
 		let toFloor1Object;
-		let questionMarkList = [];
-		let level = currentLevel<=3 ? currentLevel : 3;
+		this.questionMarkList = [];
+		this.level = currentLevel<=3 ? currentLevel : 3;
+		this.floor = 0;
 		
-		this.createMap('floor0',5,3, 0.5);	
+		this.createMap('floor0',5,4, 0.5);	
 		//map = this.add.image(0,0,'Floor0').setOrigin(0);
 		//map.setScale(0.5);
 		//this.add.image(0,0,'floor0_map_r1_c1').setOrigin(0);
 
+		this.addQuestionSpots();
+		this.createPlayer();
 
-		
 
-		this.cameras.main.setZoom(1);
+		this.cameras.main.setZoom(1.5);
 	    this.cameras.main.setBounds(-100,-100,this.mapSize.width+100,this.mapSize.height+100);
 
 	    this.maskImage = this.make.image({
@@ -70,40 +70,16 @@ class Floor0 extends Phaser.Scene {
 	    this.input.on('pointerdown', onPointerDown);
 	    this.input.on('pointerup', onPointerUp);
 
-	    //Ajout des positions des questions
-	    questionList.forEach(question => {
-	    	if (question.level==level) {
-	    		let mark = this.add.image(question.pos.x,question.pos.y,'qrcode').setOrigin(0).setInteractive();
-	    		mark.setScale(0.2);
-	    		mark.on('pointerdown', function (pointer) {
-
-        			openForm();
-
-   				});
-	    		questionMarkList.push(mark);
-	    	}
-	    });
-		
-
-		toFloor1Object = this.add.circle(125, 115, 10, 0x6666ff).setInteractive();
-		toFloor1Object.on('pointerdown', () => this.scene.start("floor1"));
-
+	    
 
 		this.scale.on('resize', resize, this);
-		this.createPlayer();
 
-		// get all pixel data for cached image
-		/*let data = this.textures.getPixelsData('myImage');
-		console.log(data);
-
-		// get colour of pixel at x = 3, y = 2
-		let col = data.getColorAt(3, 2)
-		console.log(col);*/
-
+		this.wasIn=false;
 		
 	}
 
 	update(){
+		
 
 		if (this.player.body.speed > 0)
     	{
@@ -112,6 +88,28 @@ class Floor0 extends Phaser.Scene {
     		this.player.anims.stop();
     		this.player.setFrame(0);
     	}
+
+    	tpList.forEach(tp => {
+    		if(tp.floor == this.floor){
+    			if((Math.min(tp.pos1.x,tp.pos2.x)<this.player.x && this.player.x<Math.max(tp.pos1.x,tp.pos2.x)) && (Math.min(tp.pos1.y,tp.pos2.y)<this.player.y && this.player.y<Math.max(tp.pos1.y,tp.pos2.y))){
+    				if(tp.requestLevel<=currentLevel){
+    					this.scene.start(tp.destKey, {pos: tp.destPos});
+    				}else{
+    					if(tp.instructions==null){
+    					tp.instructions = this.add.text((tp.pos1.x+tp.pos2.x)/2, (tp.pos1.y+tp.pos2.y)/2, 
+			   				 'Reviens plus tard !', 
+			   				 {font: '30px monospace', fill: '#ffd700', boundsAlignH: "center", boundsAlignV: "middle"}
+			  					).setOrigin(0.5);
+			 			
+						this.time.delayedCall(3000, () => {tp.instructions.destroy(); tp.instructions=null;});
+    					}
+    				}
+    				
+    			}else{
+    				
+    			}
+    		}
+    	});
 			
 
     }
@@ -137,42 +135,20 @@ class Floor0 extends Phaser.Scene {
 
 	}
 
-	addGetPixels(){
-		this.textures.getPixelsData = function(key, frame) {
+	addQuestionSpots(){
+		//Ajout des positions des questions
+	    questionList.forEach(question => {
+	    	if (question.level==this.level) {
+	    		let mark = this.add.image(question.pos.x,question.pos.y,'qrcode').setOrigin(0).setInteractive();
+	    		mark.setScale(0.2);
+	    		mark.on('pointerdown', function (pointer) {
 
-        let textureFrame = this.getFrame(key, frame);
+        			openForm();
 
-        if (textureFrame) {
-
-            let w = textureFrame.width;
-            let h = textureFrame.height;
-
-            // have to create new as _tempCanvas is only 1x1
-            let cnv = this.createCanvas('temp', w, h); // CONST.CANVAS, true);
-            let ctx = cnv.getContext('2d');
-
-            ctx.clearRect(0, 0, w, h);
-            ctx.drawImage(textureFrame.source.image, 0, 0, w, h, 0, 0, w, h);
-
-//            cnv.destroy();
-
-            let rv = ctx.getImageData(0, 0, w, h);
-
-            // add handy little method for converting specific pixel to Color object
-            rv.getColorAt = function(x, y) {
-                return new Phaser.Display.Color(
-                    this.data[(x+y*this.width)*4],
-                    this.data[(x+y*this.width)*4+1],
-                    this.data[(x+y*this.width)*4+2],
-                    this.data[(x+y*this.width)*4+3]
-                );
-            };
-
-            return rv;
-        }
-
-        return null;
-    };
+   				});
+	    		this.questionMarkList.push(mark);
+	    	}
+	    });
 	}
 
 	preloadMap(key, mapPath, nbRow, nbCol){

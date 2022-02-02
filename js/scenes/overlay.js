@@ -1,3 +1,5 @@
+import {eventsCenter} from "../event.js"
+
 class Overlay extends Phaser.Scene {
 
 constructor(){
@@ -6,16 +8,12 @@ constructor(){
 
 preload(){
 	this.load.image('logout_button', 'assets/logout_button.png');
+	this.load.image('qr_button', 'assets/qrcode_gold.png');
 	
 }
 
 create(){
 	
-	var div = document.createElement('div');
-    div.style = 'background-color: rgba(255,0,0,1); width: 1000px; height: 1000px; font: 48px Arial; font-weight: bold';
-    div.innerText = 'Phaser 3';
-	var element = this.add.dom(500, 500, div).setOrigin(0);
-	console.log(element);
 
 	var logout_button = this.add.image(this.game.scale.width-20*(window.innerWidth/700),5,'logout_button').setOrigin(1,0).setInteractive();
 	logout_button.setScale(0.4*(window.innerWidth/700));
@@ -23,6 +21,15 @@ create(){
 	logout_button.on('pointerdown', function (pointer) {
 
          document.location.href="logout.php";
+
+    });
+
+    var qr_button = this.add.image(15*(window.innerWidth/700),10,'qr_button').setOrigin(0).setInteractive();
+	qr_button.setScale(0.4*(window.innerWidth/400));
+
+	qr_button.on('pointerdown', function (pointer) {
+
+         document.location.href="qrscan.php";
 
     });
 
@@ -36,7 +43,10 @@ create(){
     	}
     }
     });
+
+
 }
+	
 
 }
 

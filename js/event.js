@@ -1,3 +1,5 @@
+export const eventsCenter = new Phaser.Events.EventEmitter()
+
 export function onPointerMove(pointer){
 
 	if(pointer.isDown){
