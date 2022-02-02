@@ -5,7 +5,7 @@ import tpList from "../tp.js"
 class Floor0 extends Phaser.Scene {
 
 	constructor(){
-		super('floor0');
+		super('floor1');
 	}
 
 	preload(){
