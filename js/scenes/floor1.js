@@ -8,26 +8,16 @@ class Floor0 extends Phaser.Scene {
 		super('floor1');
 	}
 
+	init(data){
+		this.playerPos = data.pos;
+	}
+
 	preload(){
 		let mapPath;
 
 		let level = currentLevel<=3 ? currentLevel : 3;
-		switch(level){
-			case 1:
-				mapPath='assets/floor0_level1';
-			break;
-			case 2:
-				mapPath='assets/floor0_level2';
-			break;
-			case 3:
-				mapPath='assets/floor0_level3';
-			break;
 
-			default:
-				mapPath='assets/floor0_level1';
-			break;
-		}
-		this.preloadMap('floor0', mapPath, 5, 4);
+		this.preloadMap('floor1', 'assets/floor1', 5, 4);
 
 		this.load.image('qrcode', 'assets/qrcode.png');
 		this.load.image('mask', 'assets/soft-mask.png');
@@ -40,9 +30,9 @@ class Floor0 extends Phaser.Scene {
 		let toFloor1Object;
 		this.questionMarkList = [];
 		this.level = currentLevel<=3 ? currentLevel : 3;
-		this.floor = 0;
+		this.floor = 1;
 		
-		this.createMap('floor0',5,4, 0.5);	
+		this.createMap('floor1',5,4, 0.5);	
 		//map = this.add.image(0,0,'Floor0').setOrigin(0);
 		//map.setScale(0.5);
 		//this.add.image(0,0,'floor0_map_r1_c1').setOrigin(0);
@@ -119,7 +109,7 @@ class Floor0 extends Phaser.Scene {
 		this.player = this.physics.add.sprite(200,200, 'player');
 		this.player.setBounce(0.2);
 		this.player.setScale(0.8);
-		this.player.setPosition(766,3383);
+		this.player.setPosition(this.playerPos.x,this.playerPos.x);
 
 	    
     	this.player.anims.create({
@@ -139,14 +129,9 @@ class Floor0 extends Phaser.Scene {
 	addQuestionSpots(){
 		//Ajout des positions des questions
 	    questionList.forEach(question => {
-	    	if (question.level==this.level) {
-	    		let mark = this.add.image(question.pos.x,question.pos.y,'qrcode').setOrigin(0).setInteractive();
+	    	if (question.level<=this.level && !answerList.includes(question.id) && question.floor==this.floor) {
+	    		let mark = this.add.image(question.pos.x,question.pos.y,'qrcode').setOrigin(0);
 	    		mark.setScale(0.2);
-	    		mark.on('pointerdown', function (pointer) {
-
-        			openForm();
-
-   				});
 	    		this.questionMarkList.push(mark);
 	    	}
 	    });
