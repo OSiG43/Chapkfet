@@ -3,7 +3,7 @@
 //C'est ici que l'on peut modifier les infos pour se connecter à la DB
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 'motivs');
 define('DB_NAME', 'chapkfet');
 
 //connection à la db
